@@ -14,13 +14,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with abc4j.  If not, see <http://www.gnu.org/licenses/>.
 
-import java.io.File;
-
 import javax.swing.JFrame;
 
+import abc.notation.BarLine;
+import abc.notation.KeySignature;
+import abc.notation.Music;
+import abc.notation.Note;
+import abc.notation.NotesSeparator;
+import abc.notation.SlurDefinition;
+import abc.notation.TieDefinition;
+import abc.notation.TimeSignature;
 import abc.notation.Tune;
-import abc.notation.TuneBook;
-import abc.parser.TuneBookParser;
 import abc.ui.swing.JScoreComponent;
 
 //import jm.music.data.*;
@@ -134,26 +138,26 @@ public class Main  {
 	}*/
 	
 	
-	public static void main (String[] arg) {
-		try {
-		TuneBook tb = new TuneBookParser().parse(new File("D:/Perso/abc/Book4.abc"));
-		Tune tune = tb.getTune(7); 
-		JScoreComponent scoreUI =new JScoreComponent();
-		scoreUI.setTune(tune);
-		scoreUI.writeScoreTo(new File("C:/Documents and Settings/uidd0558/Desktop/kittysGoneMilkingNotjustified.jpg"));
-		scoreUI.setJustification(true);
-		scoreUI.writeScoreTo(new File("C:/Documents and Settings/uidd0558/Desktop/kittysGoneMilkingJustified.jpg"));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main (String[] arg) {
+//		try {
+//		TuneBook tb = new TuneBookParser().parse(new File("E:/sts_workspace/abc4j/ressources/testPlan.abc"));
+//		Tune tune = tb.getTune(7); 
+//		JScoreComponent scoreUI =new JScoreComponent();
+//		scoreUI.setTune(tune);
+//		scoreUI.writeScoreTo(new File("E:/sts_workspace/abc4j/ressources/kittysGoneMilkingNotjustified.jpg"));
+//		scoreUI.setJustification(true);
+//		scoreUI.writeScoreTo(new File("E:/sts_workspace/abc4j/ressources/kittysGoneMilkingJustified.jpg"));
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
-	/*public static void main (String[] arg) {
+	public static void main (String[] arg) {
 		Tune tune = new Tune();
 		KeySignature key = new KeySignature(Note.D, KeySignature.MAJOR);
 		tune.getMusic().addElement(key);
-		Tune.Music music = tune.getMusic();
+		Music music = tune.getMusic();
 		music.addElement(TimeSignature.SIGNATURE_4_4);
 		Note noteFirstSlurBegin = new Note(Note.C); 
 		music.addElement(noteFirstSlurBegin);
@@ -220,6 +224,6 @@ public class Main  {
 		j.add(scoreUI);
 		j.pack();
 		j.setVisible(true);
-	}*/
+	}
 	
 }
